@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #5a67d8;
+        }
+
+        button {
+            background-color: #5a67d8;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #434190;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #5a67d8;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Interactive Page</h1>
+
+    <input type="text" id="userInput" placeholder="Type something...">
+    <button onclick="displayMessage()">Show Message</button>
+
+    <div id="message" class="hidden"></div>
+
+    <button onclick="changeColor()">Change Background Color</button>
+
+    <script>
+        function displayMessage() {
+            const input = document.getElementById('userInput').value;
+            const message = document.getElementById('message');
+
+            if (input) {
+                message.textContent = `You typed: "${input}"`;
+                message.classList.remove('hidden');
+            } else {
+                message.textContent = "Please type something first!";
+                message.classList.remove('hidden');
+            }
+        }
+
+        function changeColor() {
+            const colors = ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', '#a0c4ff', '#bdb2ff', '#ffc6ff'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+</body>
+</html>
